@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.Arm;
 
@@ -28,6 +29,7 @@ namespace PracticeExcercise0
             IsUnique("Robbie");
             IsUnique("Judah");
 
+            Console.WriteLine(IsNeilNumber(2)); //True
         }
 
 
@@ -98,7 +100,8 @@ namespace PracticeExcercise0
             {
                 // compare i to every subsequent letter
 
-                for( int j=0; j< cleanString.Length; j++)
+
+                for( int j= i + 1; j< cleanString.Length; j++)
                 {
                     if (cleanString[i] == cleanString[j])
                     {
@@ -115,7 +118,24 @@ namespace PracticeExcercise0
         // #4
         public static bool IsNeilNumber(int i)
         {
-            return true;
+            int num = i, rem, result = 0, temp = num;
+            
+            
+            while (num>0)
+            {
+                rem = num % 10;
+                result = result + (rem * rem * rem);
+                num = num / 10;
+
+
+            }
+            if (temp == result)
+
+                return true;
+            else
+            
+                return false;
+            
         }
 
     }
