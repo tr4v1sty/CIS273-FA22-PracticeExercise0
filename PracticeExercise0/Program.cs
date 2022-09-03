@@ -29,7 +29,8 @@ namespace PracticeExcercise0
             IsUnique("Robbie");
             IsUnique("Judah");
 
-            Console.WriteLine(IsNeilNumber(2)); //True
+            Console.WriteLine(IsNeilNumber(371)); //True
+            Console.WriteLine(IsNeilNumber(2)); //also True
         }
 
 
@@ -118,25 +119,23 @@ namespace PracticeExcercise0
         // #4
         public static bool IsNeilNumber(int i)
         {
-            int num = i, rem, result = 0, temp = num;
-            
-            
-            while (num>0)
+            int sum = 0;
+            int original = i;
+            int temp = 0;
+            int length = i.ToString().Length;
+
+            while (i != 0)
             {
-                rem = num % 10;
-                result = result + (rem * rem * rem);
-                num = num / 10;
-
-
+                temp = i % 10;
+                i = i / 10;
+                sum += (int)Math.Pow(temp, length);
             }
-            if (temp == result)
 
+            if (sum == original)
                 return true;
             else
-            
                 return false;
-            
         }
-
+        
     }
 }
